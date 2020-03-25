@@ -1,0 +1,19 @@
+ListNode* reverseList(ListNode* head) {
+        stack<int> s;
+        struct ListNode *j;
+        j=head;
+        while(j!=NULL)
+        {
+            s.push(j->val);
+            j=j->next;
+        }
+        j=head;
+        while(!s.empty())
+        {
+            j->val=s.top();
+            s.pop();
+            j=j->next;
+        }
+        return head;
+        
+    }
