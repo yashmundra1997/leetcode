@@ -1,0 +1,20 @@
+bool uniqueOccurrences(vector<int>& arr) {
+        map<int,int> m;
+        for(int i=0;i<arr.size();i++)
+        {
+            m[arr[i]]++;
+        }
+        vector<int> v;
+        set<int> s;
+        for(auto it:m)
+        {
+            v.push_back(it.second);
+        }
+        for(int i=0;i<v.size();i++)
+        {
+            s.insert(v[i]);
+        }
+        if(v.size()==s.size()) return true;
+        else return false;
+        
+    }
