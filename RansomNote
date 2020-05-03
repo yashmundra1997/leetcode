@@ -1,0 +1,29 @@
+class Solution {
+public:
+    bool canConstruct(string ransomNote, string magazine) {
+        vector<int> v1(26,0),v2(26,0);
+        int f=0;
+        for(int i=0;i<ransomNote.size();i++)
+        {
+            v1[ransomNote[i]-'a']++;
+        }
+        for(int i=0;i<magazine.size();i++)
+        {
+            v2[magazine[i]-'a']++;
+        }
+        for(int i=0;i<26;i++)
+        {
+            if(v1[i]>0)
+            {
+                if(v2[i]<v1[i])
+                {
+                    f=1;
+                    break;
+                }
+            }
+        }
+        if(f==1) return false;
+        else return true;
+        
+    }
+};
